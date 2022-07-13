@@ -12,6 +12,9 @@ describe("Categories presenter", () => {
     expect(getFirstValue(cartStatusProps$)).toMatchInlineSnapshot(`
       Object {
         "count": "",
+        "linkToCartPage": <Link
+          to="/cart"
+        />,
       }
     `);
   });
@@ -21,6 +24,9 @@ describe("Categories presenter", () => {
     expect(getFirstValue(cartStatusProps$)).toMatchInlineSnapshot(`
       Object {
         "count": "(5)",
+        "linkToCartPage": <Link
+          to="/cart"
+        />,
       }
     `);
   });
@@ -30,6 +36,9 @@ describe("Categories presenter", () => {
     expect(getFirstValue(cartStatusProps$)).toMatchInlineSnapshot(`
       Object {
         "count": "(9+)",
+        "linkToCartPage": <Link
+          to="/cart"
+        />,
       }
     `);
   });

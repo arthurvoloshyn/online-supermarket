@@ -1,1 +1,4 @@
-export { fetchProducts } from "@app/core/repository/products.repository";
+export {
+  fetchProduct,
+  fetchProducts,
+} from "@app/core/repository/products.repository";

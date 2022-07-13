@@ -1,10 +1,10 @@
 import { FC, PropsWithChildren } from "react";
-import { DEV_ENV } from "../env";
+import { __DEV__ } from "../env";
 
 export const LoggerComponent: FC<PropsWithChildren<Record<string, unknown>>> = (
   props
 ) => {
-  if (DEV_ENV) {
+  if (__DEV__) {
     console.log("LoggerComponent:", props);
   }
   return <>{props.children ?? null}</>;

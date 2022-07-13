@@ -6,9 +6,26 @@ export const getProducts = (
   res: Response,
   next: NextFunction
 ) => {
-  return Math.random() > 0.75
-    ? res.status(200).json({ products })
-    : res.status(404).end();
+  // flaky BE
+  if (Math.random() < 0.5) {
+    return res.status(500).end();
+  }
+
+  const keys = Object.getOwnPropertyNames(req.query);
+
+  // general case
+  if (keys.length === 0) {
+    return res.status(200).json({ products });
+  }
+
+  // super basic filtering
+  const firstKey = keys[0];
+  const firstVal = req.query[firstKey];
+  const result = products.filter((p) => Reflect.get(p, firstKey) === firstVal);
+  if (result.length > 0) {
+    return res.status(200).json({ products: result });
+  }
+  return res.status(404).end();
 };
 
 export const getProduct = (req: Request, res: Response, next: NextFunction) => {

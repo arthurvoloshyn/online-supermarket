@@ -4,11 +4,14 @@ import { Logo } from "../logo/logo.view";
 import { SiteTitle, SiteTitleProps } from "../site-title/site-title.view";
 
 type TopBarProps = {
-  CartStatus: ComponentType;
-  LinkToRoot: SiteTitleProps["LinkComponent"];
+  CartStatusComponent: ComponentType;
+  LinkToRootComponent: SiteTitleProps["LinkComponent"];
 };
 
-export const TopBar: FC<TopBarProps> = ({ CartStatus, LinkToRoot }) => (
+export const TopBar: FC<TopBarProps> = ({
+  CartStatusComponent: CartStatus,
+  LinkToRootComponent: LinkToRoot,
+}) => (
   <Container>
     <Logo LinkComponent={LinkToRoot} />
     <SiteTitle LinkComponent={LinkToRoot} />
@@ -20,4 +23,5 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 16px 16px 0;
+  height: 58px;
 `;

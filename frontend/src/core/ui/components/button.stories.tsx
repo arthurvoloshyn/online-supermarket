@@ -20,8 +20,21 @@ Normal.args = {
   ...Props,
 };
 
-export const Hover = Template.bind({});
-Hover.parameters = { pseudo: { hover: true } };
-Hover.args = {
+export const NormalHover = Template.bind({});
+NormalHover.parameters = { pseudo: { hover: true } };
+NormalHover.args = {
   ...Props,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  ...Props,
+  disabled: true,
+};
+
+export const DisabledHover = Template.bind({});
+DisabledHover.parameters = { pseudo: { hover: true } };
+DisabledHover.args = {
+  ...Props,
+  disabled: true,
 };

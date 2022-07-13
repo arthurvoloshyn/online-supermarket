@@ -1,18 +1,16 @@
-import { Product } from "@app/core/entities/Product";
+import { Product } from "@app/core/entities/product";
+import { getProductWithSlug$ } from "@app/core/repository/products.repository";
 import { createStore } from "@ngneat/elf";
 import {
   selectAllEntities,
+  selectEntity,
   setEntities,
   upsertEntitiesById,
   withEntities,
 } from "@ngneat/elf-entities";
 import { localStorageStrategy, persistState } from "@ngneat/elf-persist-state";
-import { map } from "rxjs";
-
-interface CartItem {
-  productId: Product["id"];
-  count: number;
-}
+import { map, of, switchMap } from "rxjs";
+import { CartItem } from "../entities/cart-item";
 
 const store = createStore(
   { name: "cart" },
@@ -20,11 +18,23 @@ const store = createStore(
 );
 persistState(store, { storage: localStorageStrategy });
 
+export { store as cartStore };
+
 export const cartItems$ = store.pipe(selectAllEntities());
+
+export const getCartItemWithProductId$ = (productId: Product["id"]) =>
+  store.pipe(selectEntity(productId));
 
 export const cartItemsTotalCount$ = cartItems$.pipe(
   map((items) => items.reduce((total, item) => total + item.count, 0))
 );
+
+export const getCartItemForProductWithSlug$ = (productSlug: Product["slug"]) =>
+  getProductWithSlug$(productSlug).pipe(
+    switchMap((maybeProduct) =>
+      maybeProduct ? getCartItemWithProductId$(maybeProduct.id) : of(undefined)
+    )
+  );
 
 export const upsertProductIdToCart = (productId: Product["id"]) => {
   store.update(

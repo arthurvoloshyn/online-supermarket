@@ -1,7 +1,7 @@
 import { createStore, select, setProp, withProps } from "@ngneat/elf";
 import { localStorageStrategy, persistState } from "@ngneat/elf-persist-state";
 
-import { ProductCategory } from "@app/core/entities/Product";
+import { ProductCategory } from "@app/core/entities/product";
 
 interface MenuStore {
   currentCategory: ProductCategory;

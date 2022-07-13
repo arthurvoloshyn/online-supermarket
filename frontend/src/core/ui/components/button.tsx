@@ -11,9 +11,13 @@ export const Button = styled.button`
   color: black;
   border: 2px solid black;
   cursor: pointer;
-  &:hover {
+  &:hover:enabled {
     border-color: ${color("hoverButtonText")};
     color: ${color("hoverButtonText")};
     background: ${gradient("buttonBgHover")};
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
   }
 `;

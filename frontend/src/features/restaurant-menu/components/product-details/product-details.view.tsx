@@ -9,8 +9,9 @@ export type ProductDetailsProps = {
         price: string;
         description: string;
         imageElement: ReactElement;
+        addTitle: string;
         onAdd: () => void;
-        onRemove: () => void;
+        onRemove: (() => void) | undefined;
       }
     | undefined;
   loader: {
@@ -21,28 +22,39 @@ export type ProductDetailsProps = {
 };
 
 export const ProductDetails: FC<ProductDetailsProps> = ({
-  details: { name, price, description, imageElement, onAdd, onRemove } = {},
+  details: {
+    name,
+    price,
+    description,
+    imageElement,
+    onAdd,
+    addTitle,
+    onRemove,
+  } = {},
   loader: { inProgress, error, retry },
 }) => (
   <Container>
-    {name != undefined ? (
+    {name != null ? (
       <>
+        {inProgress && <UpdateLoader>Updating...</UpdateLoader>}
         <ImageContainer>{imageElement}</ImageContainer>
         <h2>{name}</h2>
         <p>{description}</p>
         <p>For only: {price}</p>
         <ButtonsContainer>
-          <Button onClick={onAdd}>Add</Button>
-          <Button onClick={onRemove}>Remove</Button>
+          <Button onClick={onAdd}>{addTitle}</Button>
+          <Button onClick={onRemove} disabled={!onRemove}>
+            Remove
+          </Button>
         </ButtonsContainer>
       </>
-    ) : inProgress ? (
-      <div>Loading...</div>
     ) : error ? (
       <div>
         Error while loading <Button onClick={retry}>🔄 Retry</Button>
       </div>
-    ) : null}
+    ) : (
+      <div>Loading...</div>
+    )}
   </Container>
 );
 
@@ -51,6 +63,7 @@ const Container = styled.div`
   flex-direction: column;
   row-gap: 16px;
   padding: 32px 16px 16px;
+  position: relative;
 `;
 
 const ImageContainer = styled.div`
@@ -62,4 +75,10 @@ const ImageContainer = styled.div`
 const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const UpdateLoader = styled.div`
+  position: absolute;
+  right: 8px;
+  top: 8px;
 `;
