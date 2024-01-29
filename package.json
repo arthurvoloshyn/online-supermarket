@@ -10,6 +10,7 @@
     "deploy:prod:server": "yarn workspace @apps/backend deploy-prod",
     "start:client": "yarn workspace @apps/frontend start",
     "build:client": "yarn workspace @apps/frontend build",
+    "build:prod:client": "yarn workspace @apps/frontend build-prod",
     "test:client": "yarn workspace @apps/frontend test",
     "lint:client": "yarn workspace @apps/frontend lint",
     "storybook:client": "yarn workspace @apps/frontend storybook",
