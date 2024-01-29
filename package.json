@@ -6,6 +6,8 @@
   "scripts": {
     "start:dev": "concurrently \" yarn dev:server\" \"yarn start:client\"",
     "dev:server": "yarn workspace @apps/backend dev",
+    "deploy:dev:server": "yarn workspace @apps/backend deploy-dev",
+    "deploy:prod:server": "yarn workspace @apps/backend deploy-prod",
     "start:client": "yarn workspace @apps/frontend start",
     "build:client": "yarn workspace @apps/frontend build",
     "test:client": "yarn workspace @apps/frontend test",

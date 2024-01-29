@@ -48,6 +48,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "build-prod": "REACT_APP_API_BASE_URL=https://online-supermarket-server.vercel.app/ craco build",
     "test": "craco test",
     "lint": "yarn eslint .",
     "eject": "craco eject",
