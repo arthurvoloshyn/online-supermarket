@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "@apps/backend",
   "version": "1.0.0",
   "license": "MIT",
   "main": "src/server.ts",

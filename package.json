@@ -1,7 +1,21 @@
 {
   "name": "clean-arch-demo-pizza",
   "license": "MIT",
+  "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "dev:server": "yarn workspace @apps/backend dev",
+    "start:client": "yarn workspace @apps/frontend start",
+    "build:client": "yarn workspace @apps/frontend build",
+    "test:client": "yarn workspace @apps/frontend test",
+    "lint:client": "yarn workspace @apps/frontend lint",
+    "storybook:client": "yarn workspace @apps/frontend storybook",
+    "build:storybook:client": "yarn workspace @apps/frontend build-storybook",
+    "clear:cache:client": "yarn workspace @apps/frontend clear-cache"
+  },
+  "workspaces": [
+    "apps/*"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

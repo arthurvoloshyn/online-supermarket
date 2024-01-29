@@ -16,7 +16,7 @@
 
 ## Planned tech
 
-- BE / FE in one repo without workspaces - to keep things simpler
+- BE / FE in one repo - to keep things simpler
 - simple REST API backend - just for demo purposes
 - CRA Web App - for quick start with modern JS bundling, React etc
 - React for View layer
