@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "src/server.ts",
   "scripts": {
-    "dev": "nodemon src/server.ts",
+    "dev": "PORT=7000 nodemon src/server.ts",
     "tsc": "tsc --noEmit"
   },
   "dependencies": {
