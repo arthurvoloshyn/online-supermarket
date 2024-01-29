@@ -1,5 +1,24 @@
 # Online supermarket
 
+## Run the project
+
+```
+yarn install - install dependencies
+yarn start:dev - run server + frontend project in dev mode
+```
+
+## Scripts
+
+- `yarn start:dev` - Run frontend project + backend
+- `yarn dev:server` - Run backend server
+- `yarn start:client` - Run frontend project
+- `yarn build:prod:client` - Build in prod mode
+- `yarn build:dev:client` - Build in dev mode (non-minified)
+- `yarn lint:client` - Lint check for ts files
+- `yarn test:client` - Run unit tests with jest
+- `yarn storybook:client` - Run Storybook
+- `yarn storybook:build:client` - Build Storybook
+
 ## Planned features
 
 - restaurant menu:
