@@ -1,4 +1,4 @@
-# Clean Architecture inspired example for pizza ordering Web app
+# Online supermarket
 
 ## Planned features
 
