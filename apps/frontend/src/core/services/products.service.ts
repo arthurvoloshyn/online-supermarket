@@ -1,6 +1,7 @@
 import Axios from "axios-observable";
 import { delay, map, Observable, of, switchMap } from "rxjs";
 import { Product } from "../entities/product";
+import { API_BASE_URL } from "../env";
 
 type ProductsRequestData = {
   products: Product[];
@@ -9,7 +10,7 @@ type ProductsRequestData = {
 const delayed$ = of(null).pipe(delay(2000));
 
 const Endpoint = Axios.create({
-  baseURL: "http://127.0.0.1:7000/",
+  baseURL: API_BASE_URL,
 });
 
 export const getProducts$ = (): Observable<Product[]> => {
