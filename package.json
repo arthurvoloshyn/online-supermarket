@@ -11,7 +11,8 @@
     "lint:client": "yarn workspace @apps/frontend lint",
     "storybook:client": "yarn workspace @apps/frontend storybook",
     "build:storybook:client": "yarn workspace @apps/frontend build-storybook",
-    "clear:cache:client": "yarn workspace @apps/frontend clear-cache"
+    "clear:cache:client": "yarn workspace @apps/frontend clear-cache",
+    "prettier": "prettier --write ."
   },
   "workspaces": [
     "apps/*"
