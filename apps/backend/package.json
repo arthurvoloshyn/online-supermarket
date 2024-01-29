@@ -4,7 +4,8 @@
   "license": "MIT",
   "main": "src/server.ts",
   "scripts": {
-    "dev": "nodemon src/server.ts"
+    "dev": "nodemon src/server.ts",
+    "tsc": "tsc --noEmit"
   },
   "dependencies": {
     "@types/express": "^4.17.13",
